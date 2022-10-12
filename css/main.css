@@ -1,0 +1,427 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    margin: 0;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    height: 98vh;
+    width: 100vw;
+}
+
+.page-title {
+    margin: 0;
+    background-color: teal;
+    font-size: 2em;
+    letter-spacing: -1px;
+    color: white;
+    margin-bottom: 2%;
+}
+
+.book-filter {
+    margin-bottom: 1%;
+    background-color: rgb(202, 237, 237);
+}
+
+.filters {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filters span {
+    position: relative;
+    font-size: 1.5em;
+    color: black;
+}
+
+.filters label {
+    /* background-color: aliceblue; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2%;
+    font-size: 1.1em;
+    font-weight: 600;
+    width: 20%;
+    height: 2em;
+}
+
+.range {
+    -webkit-appearance: none;
+    background: #111;
+    outline: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
+}
+
+.range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: lightcoral;
+    cursor: pointer;
+    border: 4px solid #333;
+    box-shadow: -407px 0 0 400px lightcoral;
+}
+
+.view-select-container {
+    position: relative;
+    display: flex;
+    height: 4.2%;
+    margin-bottom: 1%;
+    margin-left: 1%;
+}
+
+.create-book {
+    width: 12%;
+    height: 100%;
+    margin-left: 1%;
+}
+
+.view-select {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+    padding: 4px;
+    width: 2.5%;
+}
+
+.view-select img {
+    max-height: 100%;
+}
+
+.next-page-container {
+    width: 10%;
+    margin-left: 24.5%;
+    display: flex;
+    justify-content: center;
+}
+
+.next-page-container .curr-page {
+    cursor: not-allowed;
+
+}
+
+
+/* cards-preview */
+
+.main-content {
+    display: flex;
+    height: 70%;
+}
+
+.book-preview {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    text-align: center;
+    color: darkviolet;
+    width: 20%;
+    margin: .5em;
+    border: 1px solid lightgray;
+    border-radius: .2em;
+    padding: 5px;
+}
+
+.book-preview .btn-remove {
+    float: right;
+}
+
+.book-preview img {
+    width: 100%;
+    height: 15em;
+    bottom: 0;
+}
+
+.book-preview h5 {
+    font-size: 1.4em;
+    text-transform: capitalize;
+    text-decoration: overline;
+}
+
+.book-preview h6 span {
+    color: tomato;
+    font-size: 2em;
+}
+
+/*  */
+
+.create-book {
+    margin-bottom: 1%;
+}
+
+table {
+    border-spacing: 10px;
+    border-collapse: separate;
+    border: 1.5px solid black;
+    margin: 0.5em;
+    /* background-color: #bdbdbd; */
+}
+
+thead {
+    /* background-color: teal; */
+    /* color: white; */
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.id-title {
+    width: 8%;
+}
+
+.book-name .title,
+.book-price .title {
+    box-shadow: inset 0 0 0 0 #54b3d6;
+    margin: 0 -.25rem;
+    padding: 0 .25rem;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+    cursor: pointer;
+
+}
+
+.book-name .title:hover,
+.book-price .title:hover {
+    box-shadow: inset 100px 0 0 0 #54b3d6;
+    color: white;
+
+}
+
+.book-name {
+    width: 45%;
+}
+
+.book-price {
+    width: 12%;
+}
+
+/* .book-name span, .book-price span {
+    text-decoration: none;
+} */
+
+.actions {
+    width: 35%;
+}
+
+tbody td {
+    border: 2px solid gray;
+}
+
+tbody tr:hover {
+    background-color: coral;
+}
+
+button {
+    cursor: pointer;
+}
+
+.book-name {
+    text-align: left;
+}
+
+
+
+/* 
+========================
+  GLOW BTN. Dark-Mode
+========================
+*/
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    align-items: center;
+    flex-wrap: nowrap;
+    background: rgb(66, 115, 131);
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 150%;
+    height: 100%;
+    width: 40%;
+    min-width: 300px;
+    text-align: center;
+    color: white;
+}
+
+.modal.open {
+    left: 60%;
+    transition: left .5s;
+}
+
+.modal h3 {
+    text-transform: capitalize;
+    margin-top: 4%;
+    font-size: 1.8em;
+}
+
+.modal h3.book-name {
+    text-decoration: overline;
+}
+
+.modal img {
+    height: 55%;
+    width: 70%;
+    border: 1px solid white;
+}
+
+.modal p {
+    margin: 0;
+    /* max-height: 20%; */
+
+}
+
+.modal .rating {
+    /* margin-top: 2%; */
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    /* border: 2px solid gray ; */
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.modal .rating .rating-select {
+    display: flex;
+    justify-content: space-between;
+    background-color: #000;
+    width: 50%;
+}
+
+.modal .modal-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    /* height: 100%; */
+
+}
+
+.modal .rating button {
+    width: 30%;
+}
+
+
+.modal .close-modal {
+    /* position: absolute; */
+    width: 80%;
+    bottom: 1%;
+}
+
+
+
+.user-msg {
+    position: fixed;
+    bottom: -100px;
+    right: 10px;
+    background-color: #111;
+    padding: 10px;
+    color: white;
+    font-weight: 700;
+    font-size: 1em;
+    letter-spacing: 1.5px;
+}
+
+.user-msg.open {
+    bottom: 10px;
+    transition: bottom .5s;
+}
+
+
+/* 
+========================
+  GLOW BTN. Dark-Mode
+========================
+*/
+
+.glow-on-hover {
+    position: relative;
+    z-index: 0;
+    color: white;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(66, 115, 131);
+    left: 0;
+    top: 0;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.clicked {
+    background-color: lightcoral;
+}
+
+.hide {
+    display: none !important;
+}
+
+.table-show {
+    display: table;
+}
+
+.show {
+    display: inline;
+}

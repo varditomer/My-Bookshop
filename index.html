@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Book-Shop</title>
+</head>
+
+<body onload="onInit()">
+    <div class="page-container">
+        <h1 class="page-title">Welcome to my Book-Shop</h1>
+        <section class="book-filter">
+            <h2>Filter</h2>
+            <div class="filters">
+                <label>
+                    Max Price: <span class="maxPriceRangeValue">50</span>
+                    <input type="range" min="1" max="50" value="50" class="filter-price-range range"
+                        oninput="this.title=this.value;onSetFilterBy({maxPrice: this.value})" />
+                </label>
+                <label>
+                    Min Rate: <span class="minRateRangeValue">0</span>
+                    <input type="range" min="0" max="10" value="0" class="filter-rate-range range"
+                        oninput="this.title=this.value;onSetFilterBy({minRate: this.value})" />
+                </label>
+                <label>
+                    Text Filter:
+                    <input type="text" placeholder="filter..." class="filter-txt"
+                        oninput="this.title=this.value;onSetFilterBy({text: this.value})" />
+                </label>
+            </div>
+        </section>
+
+        <div class="view-select-container">
+            <button class="cards view-select" onclick="onCardsView()"><img src="images/cards_view.png" alt=""></button>
+            <button class="table view-select clicked" onclick="onTableView()"><img src="images/table_view.png"
+                    alt=""></button>
+            <button class="create-book glow-on-hover" onclick="onAddBook()">Create new book</button>
+            <div class="next-page-container">
+                <button class="to-first-page" title="first-page" onclick="onNextPage('first')">⏪</button>
+                <button class="prev-page" title="previous-page" onclick="onNextPage('previous')">-</button>
+                <button class="curr-page clicked" title="current-page">1</button>
+                <button class="next-page" title="next-page" onclick="onNextPage('next')">2</button>
+                <button class="to-last-page" title="last-page" onclick="onNextPage('last')">⏩</button>
+            </div>
+        </div>
+
+        <section class="main-content hide"></section>
+        <table>
+            <thead>
+                <td class="id-title underline">Id</td>
+                <td class="book-name" onclick="onSetSortBy('book-name')"><span class="title underline">Title</span><span
+                        class="sort-direction"></span></td>
+                <td class="book-price" onclick="onSetSortBy('book-price')"><span
+                        class="title underline">Price</span><span class="sort-direction"></span></td>
+                <td class="actions underline" colspan="3">Actions</td>
+            </thead>
+            <tbody class="books-table">
+            </tbody>
+        </table>
+
+
+
+        <div class="modal">
+            <h3 class="book-name">Book Name</h3>
+            <img src="" alt="">
+            <p class="book-summary"></p>
+            <h4>Price: <span></span> </h4>
+            <div class="modal-bottom">
+                <div class="rating">
+                    Rating:
+                    <div class="rating-select">
+                        <button class="rating-btn minus">-</button>
+                        <span></span>
+                        <button class="rating-btn plus">+</button>
+                    </div>
+                </div>
+                <button class="close-modal" onclick="onCloseModal()">Close</button>
+            </div>
+        </div>
+
+        <div class="user-msg"></div>
+    </div>
+
+
+    <script src="js/servicecs/util.service.js"></script>
+    <script src="js/servicecs/storage.service.js"></script>
+    <script src="js/servicecs/book.service.js"></script>
+    <script src="js/book.controller.js"></script>
+</body>
+
+</html>
